@@ -1,0 +1,28 @@
+{
+  "root_folder": {
+    "docs": {
+      "reports": {
+        "files": ["sales_report.js", "marketing_report.ts"]
+      },
+      "invoices": {
+        "files": ["invoice_2022.js", "invoice_2023.html", "invoice_2024.pdf"]
+      },
+      "files": ["file.ts", "license.ts"]
+    },
+    "src": {
+      "components": {
+        "files": ["button.js", "input.css", "docker-compose.yml"]
+      }
+    },
+    "data": {
+      "assets": {
+        "images": {
+          "files": ["logo.png"]
+        },
+        "files": ["data.json", "config.css"]
+      }
+    },
+    "files": ["app.js", "index.ts"]
+  },
+  "root_files": ["readme.md"]
+}
