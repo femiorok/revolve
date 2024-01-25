@@ -7,7 +7,7 @@ export function AnimatedContainer({ children }: { children: React.ReactNode }) {
   const [ref, { height }] = useMeasure<HTMLDivElement>();
 
   return (
-    <MotionConfig transition={{ duration: 1 }}>
+    <MotionConfig transition={{ duration: 0.5 }}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, height: height }}

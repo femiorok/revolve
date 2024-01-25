@@ -5,6 +5,7 @@ import File from './File';
 import { Icon } from './FolderIcon';
 import { Button } from '@/components/ui/button';
 import { Descendant } from '@/lib/types';
+import { AnimatedContainer } from './AnimatedContainer';
 
 export default function Folder({
   name,
@@ -23,32 +24,34 @@ export default function Folder({
   };
 
   return (
-    <div style={depthStyle} className="m-2 rounded-lg bg-stone-500 p-2">
-      <Button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex max-w-40 gap-1"
-      >
-        <Icon iconName={iconState} />
-        <p>{name}</p>
-      </Button>
-      {isOpen &&
-        Object.keys(descendants).map((item) => {
-          const itemDescendant = descendants[item];
-          if (!Array.isArray(itemDescendant) && itemDescendant) {
-            return (
-              <Folder
-                key={item}
-                name={item}
-                descendants={itemDescendant as Descendant}
-                depth={depth + 1}
-              />
-            );
-          } else if (Array.isArray(itemDescendant)) {
-            return itemDescendant.map((fileName) => (
-              <File key={fileName} name={fileName} depth={depth + 1} />
-            ));
-          }
-        })}
-    </div>
+    <AnimatedContainer>
+      <div style={depthStyle} className="m-2 rounded-lg bg-stone-500 p-2">
+        <Button
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex max-w-40 gap-1"
+        >
+          <Icon iconName={iconState} />
+          <p>{name}</p>
+        </Button>
+        {isOpen &&
+          Object.keys(descendants).map((item) => {
+            const itemDescendant = descendants[item];
+            if (!Array.isArray(itemDescendant) && itemDescendant) {
+              return (
+                <Folder
+                  key={item}
+                  name={item}
+                  descendants={itemDescendant as Descendant}
+                  depth={depth + 1}
+                />
+              );
+            } else if (Array.isArray(itemDescendant)) {
+              return itemDescendant.map((fileName) => (
+                <File key={fileName} name={fileName} depth={depth + 1} />
+              ));
+            }
+          })}
+      </div>
+    </AnimatedContainer>
   );
 }
