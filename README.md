@@ -18,19 +18,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Notes
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Enjoy playing with the folders `:)`
+- Framer Motion, while powerful, can be tricky to work with SSR since it relies on certain aspects of the DOM that aren't available on the server. With more time, I could optimize by creating more client components that render server components as children. Currently most components are client components which, while not [suboptimal by any means](https://www.youtube.com/watch?v=6jM_0wDOw4g), doesn't take advantage of the benefits of SSR. If this project involved fetching data externally this approach would have to change a bit.
+- This project is more 'Next.js-y' than 'React-y' in that it uses minimal classic React features (fetching data on mount via `useEffect` and `useState` for example).
+- Further potential optimizations could involve using Context to allow a "close all folders" button. Additionally, in production I might not import the entire 100kb worth of Framer Motion and instead use a more lightweight animation library.
+- My original idea was to use the Github API and recursively render a file tree of any repo pasted in an input, but didn't want to let myself fall into the trap of enjoying building something cool (and slightly overkill?) for a take home test and forgetting that deadlines exist lol
